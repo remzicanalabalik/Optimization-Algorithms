@@ -1,0 +1,9 @@
+function setDate(s) {
+    console.log("date: "+s);
+    out.innerText = "Current date is "+s;
+}
+function setColor(c) {
+    console.log("color: "+c);
+    title.style.color = c;
+    out.style.color = c;
+}
