@@ -1,9 +1,15 @@
-function setDate(s) {
-    console.log("date: "+s);
-    out.innerText = "Current date is "+s;
+function poisson(x, λ, f=4) {
+    let p = Math.exp(-λ)
+    for (let k=1; k<=x; k++) p = p*λ/k
+    return p.toFixed(f)
 }
-function setColor(c) {
-    console.log("color: "+c);
-    title.style.color = c;
-    out.style.color = c;
+function doTable() {
+    const L = [0.5, 1, 1.5, 2, 2.5, 3]
+    let a = L.map((λ) => 'λ='+λ)
+    let str = header(a)
+    for (let x=0; x<=8; x++) { 
+       let a = L.map((λ) => poisson(x, λ))
+       str += oneLine(a, x)
+    }
+    return str
 }
